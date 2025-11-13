@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body {
+  scroll-behavior: smooth;
+}
+
+@layer utilities {
+  .animate-borderFlow {
+    background-size: 300% 300%;
+  }
+  .animate-textGlow {
+    animation: textGlow 5s ease-in-out infinite;
+  }
+  .animate-pulseSlow {
+    animation: pulseSlow 8s ease-in-out infinite;
+  }
+  .animate-sheen {
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
+    background-size: 200% 100%;
+    animation: sheen 6s linear infinite;
+  }
+  .animate-floatIn {
+    animation: floatIn 1.2s cubic-bezier(.16,.8,.43,.99);
+  }
+}
+
+@keyframes textGlow {
+  0%, 100% { filter: drop-shadow(0 0 6px rgba(0,255,255,0.3)); }
+  50% { filter: drop-shadow(0 0 14px rgba(255,0,255,0.4)); }
+}
+@keyframes pulseSlow {
+  0%, 100% { opacity: .9; }
+  50% { opacity: .6; }
+}
+@keyframes sheen {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+@keyframes floatIn {
+  0% { opacity: 0; transform: translateY(30px) scale(.96); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
